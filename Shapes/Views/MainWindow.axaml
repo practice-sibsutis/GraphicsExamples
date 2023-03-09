@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Shapes.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="500" Width="500" Height="500"
+        x:Class="Shapes.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Shapes">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Canvas Width="{Binding $parent[Window].Width}" Height="{Binding $parent[Window].Height}">
+		<Line StartPoint="120, 185" EndPoint="30, 115" Stroke="Black" StrokeThickness="2"/>
+		<Polyline Points="0,0 65,0 78,-26 91,39" Stroke="DarkBlue" StrokeThickness="2" Fill="Violet"
+				  Canvas.Left="150" Canvas.Top="31"/>
+		<Rectangle Width="50" Height="70" Fill="Coral" Canvas.Left="40" Canvas.Top="31"/>
+		<Ellipse Width="70" Height="50" Fill="DarkCyan" Canvas.Left="88" Canvas.Top="100"/>
+		<Polygon Points="0,0 65,0 78,-26 91,39" Stroke="DarkBlue" StrokeThickness="2" Fill="Bisque"
+				  Canvas.Left="30" Canvas.Top="250"/>
+		<Path Fill="Orange" Data="M 0,0 c 0,0 50,0 50,-50 c 0,0 50,0 50,50 h -50 v 50 l -50,-50 Z"
+			  Canvas.Left="30" Canvas.Top="350"/>
+	</Canvas>
+
+</Window>

@@ -1,0 +1,97 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:GeometryExample.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="600" Width="600" Height="600"
+        x:Class="GeometryExample.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="GeometryExample">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Canvas Width="{Binding $parent[Window].Width}" Height="{Binding $parent[Window].Height}">
+		<Path Stroke="Black" StrokeThickness="2">
+			<Path.Data>
+				<LineGeometry StartPoint="10,20" EndPoint="100,130" />
+			</Path.Data>
+		</Path>
+
+		<Path Fill="Cornsilk" Stroke="Black" StrokeThickness="2" Canvas.Top="150">
+			<Path.Data>
+				<EllipseGeometry Center="50,50" Rect="10,50 150,100" />
+			</Path.Data>
+		</Path>
+
+		<Path Fill="Gold" Stroke="Black" StrokeThickness="1">
+			<Path.Data>
+				<EllipseGeometry Center="150,50" RadiusX="50" RadiusY="50"/>
+			</Path.Data>
+		</Path>
+
+		<Path Fill="LightSalmon" Stroke="Black" StrokeThickness="1" Canvas.Right="100">
+			<Path.Data>
+				<RectangleGeometry Rect="50,50,25,25" />
+			</Path.Data>
+		</Path>
+
+		<Image Source="/Assets/Best-of-2016-Nasim-Mansurov-20.jpg" Width="300" Height="300" Canvas.Bottom="10">
+			<Image.Clip>
+				<RectangleGeometry Rect="50,50,250,150" />
+			</Image.Clip>
+		</Image>
+
+		<Image Source="/Assets/Best-of-2016-Nasim-Mansurov-20.jpg" Width="300" Height="300" Canvas.Right="10" Canvas.Bottom="10">
+			<Image.Clip>
+				<EllipseGeometry Center="150,50" RadiusX="50" RadiusY="50"/>
+			</Image.Clip>
+		</Image>
+
+		<Image Source="/Assets/qqq.png" Width="100" Height="100" Canvas.Right="80" Canvas.Bottom="320">
+
+		</Image>
+
+		<Image Source="/Assets/Best-of-2016-Nasim-Mansurov-20.jpg" Width="300" Height="300" Canvas.Right="10" Canvas.Bottom="250">
+			<Image.Clip>
+				<CombinedGeometry GeometryCombineMode="Xor">
+					<CombinedGeometry.Geometry1>
+						<EllipseGeometry Center="175,125" RadiusX="50" RadiusY="50"/>
+					</CombinedGeometry.Geometry1>
+					<CombinedGeometry.Geometry2>
+						<RectangleGeometry Rect="50,50,250,150" />
+					</CombinedGeometry.Geometry2>
+				</CombinedGeometry>
+			</Image.Clip>
+		</Image>
+
+		<DrawingPresenter>
+			<GeometryDrawing Brush="Bisque">
+				<GeometryDrawing.Geometry>
+					<RectangleGeometry Rect="100,100,250,250" />
+				</GeometryDrawing.Geometry>
+				<GeometryDrawing.Pen>
+					<Pen Thickness="2"/>
+				</GeometryDrawing.Pen>
+
+			</GeometryDrawing>
+		</DrawingPresenter>
+
+		<Image Stretch="None">
+			<Image.Source>
+				<DrawingImage>
+					<GeometryDrawing Brush="Chocolate">
+						<GeometryDrawing.Geometry>
+							<EllipseGeometry Center="100,100" RadiusX="50" RadiusY="100"/>
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingImage>
+			</Image.Source>
+		</Image>
+		
+	</Canvas>
+
+</Window>
